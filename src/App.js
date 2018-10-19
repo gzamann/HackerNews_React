@@ -15,18 +15,28 @@ const list = [
   objectId: 1
   }
 ]
+
+const isSearched = searchTerm => item =>
+  item.title.toLowerCase().includes(searchTerm.toLowerCase());
+
 class App extends Component {
   
   constructor(props){
     super(props);
 
     this.state = {
-      list
+      list,
+      searchTerm: ""
     };
 
+    this.onSearchChange = this.onSearchChange.bind(this);
     this.onDismiss = this.onDismiss.bind(this);
   }
   
+  onSearchChange(event){
+    this.setState({searchTerm: event.target.value});
+  }
+
   onDismiss(id){
     const updatedList = this.state.list.filter(item => item.objectId !== id);
     this.setState({list: updatedList});
@@ -35,18 +45,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        
+        <form>
+          <input type="text"
+            onChange={this.onSearchChange}/>
+        </form>
+
         <header className="App-header">
           <h1 className="App-title">Welcome Hackers</h1>
         </header>
         <div className="App-intro">
-        {this.state.list.map(item=>{
+        {this.state.list.filter(isSearched(this.state.searchTerm)).map(item=>{
          return(
          <div>{item.title}
          <p>{item.author}</p>
          <p>{item.pages}</p>
          <p>{"id "+item.objectId}</p>
          <span>
-           <button onClick={()=>this.onDismiss(item.objectId)}
+           <button onClick={() => this.onDismiss(item.objectId)}
             type="button">
            Dismiss
            </button>

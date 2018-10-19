@@ -18,14 +18,15 @@
 
 .App-intro {
   font-size: large;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 50%;
-  margin-left: 10%;
+  margin-left: 10%; */
 }
 
 .App-intro div{
   display: block;
   width: 100%;
+  margin-bottom: 2%;
 }
