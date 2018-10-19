@@ -16,17 +16,16 @@
   font-size: 1.5em;
 }
 
-.App-intro {
+.table {
   font-size: large;
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 50%;
-  margin-left: 10%; */
 }
 
-.App-intro div{
+.table div{
   display: block;
   width: 100%;
   margin-bottom: 2%;
+}
+
+.table span{
+  display: block;
 }
