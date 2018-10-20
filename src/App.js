@@ -48,61 +48,84 @@ class App extends Component {
       <div className="App">
         
       <header className="App-header">
-        <h1 className="App-title">Welcome Hackers</h1>
+        <h1 className="App-title">Welcome</h1>
       </header>
 
         <Search 
           value={searchTerm}
           onChange={this.onSearchChange}
-        >
-        S
-        </Search>
+        />
 
         <Table 
           list = {list}
           pattern = {searchTerm}
           onDismiss = {this.onDismiss}
-        />
+        >
+        <div>
+          <div>Title</div>
+          <div>Author</div>
+          <div>some</div>
+          <div>someelse</div>
+        </div>
+        </Table>
 
       </div>
     );
   }
 }
 
-class Search extends Component{
-  render(){
-    const {value, children, onChange} = this.props;
-    return(
-      <form>
-      {children} <input type="text"
+const Search=({value, onChange})=>
+      <form className="searcher">
+        <input type="text"
           value={value}
           onChange={onChange}
+          placeholder="Search"
         />
       </form>
-    );
-  }
-}
 
 class Table extends Component{
   render(){
-    const {list, pattern, onDismiss} = this.props;
+    const {children,list, pattern, onDismiss} = this.props;
     return(
       <div className="table">
+      {children}
         {list.filter(isSearched(pattern)).map(item =>
           <div key={item.objectId}>
-            <span>
+            <div>
               <a href={item.url}>{item.title}</a>
-            </span>
-            <span>{item.author}</span>
-            <span>{item.pages}</span>
-            <span>{"id: "+item.objectId}</span>
-            <button
-              onClick={()=>onDismiss(item.objectId)}
-              type="button">
-              Dismiss
-            </button>
+            </div>
+            <div>{item.author}</div>
+            <div>{item.pages}</div>
+            <div>{"id: "+item.objectId}</div>
+            <div>
+            <Button 
+              onClick={()=>onDismiss(item.objectId)}>
+              x
+            </Button>
+            </div>
           </div>)}
       </div>
+    );
+  }
+}
+
+class Button extends Component{
+  render(){
+    const {
+      onClick,
+      className='',
+      children
+    } = this.props;
+    
+    return(
+
+      <button
+        onClick={onClick}
+        className={className}
+        type="button"
+      >
+        {children}
+      </button>
     );
   }
 }

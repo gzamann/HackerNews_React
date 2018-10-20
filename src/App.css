@@ -1,31 +1,62 @@
 .App {
   text-align: center;
-  background: #222;
+  background: #233D4D;
   height: 100vh;
-  color:#eee;
+  color: #eee;
+  padding: 1%;
+  overflow: hidden;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  padding:10px 0 50px 0;
+  color:#eee;
 }
 
 .App-title {
   font-size: 1.5em;
 }
 
+.searcher{
+  margin-top: -10px;
+  margin-bottom: 20px;
+  display: block;
+}
+.searcher input{
+  background:transparent;
+  padding: 10px;
+  color: #eee;
+  border-color:transparent ;
+  border-bottom: 1.5px solid #eee;
+}
+
+.searcher input:focus{
+  background: #1D3240;
+}
+
 .table {
   font-size: large;
+  color: black;
+  background: #99B2DD;
 }
 
-.table div{
-  display: block;
-  width: 100%;
-  margin-bottom: 2%;
+.table div:first-of-type{
+  display: grid;
+  grid-template-columns:40% 20% 20% 20%;
 }
 
-.table span{
-  display: block;
+.table div {
+  display: grid;
+  grid-template-columns:40% 20% 20% 10% 10%;
+  text-align: left;
+}
+
+.table button {
+  background: #E0777D;
+  border: none;
+  border-radius: 10px;
+}
+
+.table div div {
+  border: 0.5px solid #222;
+  padding: 10px;
 }
