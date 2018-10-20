@@ -4,49 +4,60 @@
   height: 100vh;
   color: #eee;
   padding: 1%;
-  overflow: hidden;
 }
 
 .App-header {
-  padding:10px 0 50px 0;
-  color:#eee;
+  padding: 10px 0 50px 0;
+  color: #eee;
 }
 
 .App-title {
   font-size: 1.5em;
 }
 
-.searcher{
+.searcher {
   margin-top: -10px;
   margin-bottom: 20px;
   display: block;
 }
-.searcher input{
-  background:transparent;
+
+.searcher input {
+  background: transparent;
   padding: 10px;
   color: #eee;
-  border-color:transparent ;
+  border-color: transparent;
   border-bottom: 1.5px solid #eee;
 }
 
-.searcher input:focus{
+.searcher input:focus {
   background: #1D3240;
 }
 
+a{
+  text-decoration: none;
+  color:inherit;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
 .table {
-  font-size: large;
+  font-size: 1em;
   color: black;
   background: #99B2DD;
+  overflow: scroll;
+  height: 70vh;
 }
 
-.table div:first-of-type{
+.structtable{
   display: grid;
-  grid-template-columns:40% 20% 20% 20%;
+  grid-template-columns: 40% 20% 20% 20%;
 }
 
-.table div {
+.tableitems {
   display: grid;
-  grid-template-columns:40% 20% 20% 10% 10%;
+  grid-template-columns: 40% 20% 20% 10% 10%;
   text-align: left;
 }
 
@@ -54,6 +65,7 @@
   background: #E0777D;
   border: none;
   border-radius: 10px;
+  float: right;
 }
 
 .table div div {
